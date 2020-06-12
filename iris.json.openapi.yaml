@@ -1,134 +1,67 @@
--
-    info:
-        version: 1.0.0
-        title: 'GitRows API Interface'
-        contact:
-            name: gitrows
-            url: 'https://github.com/gitrows'
-            email: support@gitrows.com
-        x-gitrows-repository: 'https://github.com/gitrows/data/blob/master/iris.json'
-        x-gitrows-api-path: '@github/gitrows/data/iris.json'
-        description: "*Acknowledgements*\nThe citation for this dataset is:\n\nFisher, R. A. (1936) The use of multiple measurements in taxonomic problems. Annals of Eugenics, 7, Part II, 179-188.\n\nThe data were collected by Anderson, Edgar (1935). The irises of the Gaspe Peninsula, Bulletin of the American Iris Society, 59, 2-5.\n\n*Source*\nhttps://www.kaggle.com/rtatman/iris-dataset-json-version\n\n---\n\nCreated with [GitRows](https://gitrows.com)"
-    openapi: 3.0.0
-    servers:
-        -
-            url: 'https://api.gitrows.com'
-    paths:
-        /@github/gitrows/data/iris.json:
-            get:
-                operationId: listRecords
-                responses:
-                    '200':
-                        description: 'Returns a list of records'
-                        content:
-                            application/json:
-                                schema:
-                                    type: array
-                                    items: {$ref: '#/components/schemas/Record'}
-                    default:
-                        description: 'Error Payload'
-                        content:
-                            application/json:
-                                schema:
-                                    $ref: '#/components/schemas/Error'
-    components:
-        schemas:
-            Error:
-                type: object
-                properties:
-                    code:
-                        type: integer
-                        format: int32
-                    message:
-                        type: string
-                    documentation:
-                        type: object
-                        properties:
-                            description:
-                                type: string
-                            url:
-                                type: string
-            Record:
-                type: object
-                properties:
-                    sepalLength:
-                        type: number
-                        format: float
-                    sepalWidth:
-                        type: integer
-                        format: int32
-                    petalLength:
-                        type: number
-                        format: float
-                    petalWidth:
-                        type: number
-                        format: float
-                    species:
-                        type: string
--
-    info:
-        version: 1.0.0
-        title: 'GitRows API Interface'
-        contact:
-            name: gitrows
-            url: 'https://github.com/gitrows'
-            email: support@gitrows.com
-        x-gitrows-repository: 'https://github.com/gitrows/data/blob/master/iris.json'
-        x-gitrows-api-path: '@github/gitrows/data/iris.json'
-        description: "**Acknowledgements**\n\nThe citation for this dataset is:\n\nFisher, R. A. (1936) The use of multiple measurements in taxonomic problems. Annals of Eugenics, 7, Part II, 179-188.\n\nThe data were collected by Anderson, Edgar (1935). The irises of the Gaspe Peninsula, Bulletin of the American Iris Society, 59, 2-5.\n\n\n**Source**\n[https://www.kaggle.com/rtatman/iris-dataset-json-version](https://www.kaggle.com/rtatman/iris-dataset-json-version)\n\n---\n\nCreated with [GitRows](https://gitrows.com)"
-    openapi: 3.0.0
-    servers:
-        -
-            url: 'https://api.gitrows.com'
-    paths:
-        /@github/gitrows/data/iris.json:
-            get:
-                operationId: listRecords
-                responses:
-                    '200':
-                        description: 'Returns a list of records'
-                        content:
-                            application/json:
-                                schema:
-                                    type: array
-                                    items: {$ref: '#/components/schemas/Record'}
-                    default:
-                        description: 'Error Payload'
-                        content:
-                            application/json:
-                                schema:
-                                    $ref: '#/components/schemas/Error'
-    components:
-        schemas:
-            Error:
-                type: object
-                properties:
-                    code:
-                        type: integer
-                        format: int32
-                    message:
-                        type: string
-                    documentation:
-                        type: object
-                        properties:
-                            description:
-                                type: string
-                            url:
-                                type: string
-            Record:
-                type: object
-                properties:
-                    sepalLength:
-                        type: number
-                        format: float
-                    sepalWidth:
-                        type: integer
-                        format: int32
-                    petalLength:
-                        type: number
-                        format: float
-                    petalWidth:
-                        type: number
-                        format: float
-                    species:
-                        type: string
+info:
+    version: 1.0.0
+    title: 'GitRows API Interface'
+    contact:
+        name: gitrows
+        url: 'https://github.com/gitrows'
+        email: support@gitrows.com
+    x-gitrows-repository: 'https://github.com/gitrows/data/blob/master/iris.json'
+    x-gitrows-api-path: '@github/gitrows/data/iris.json'
+    description: "**Acknowledgements**\n\nThe citation for this dataset is:\n\nFisher, R. A. (1936) The use of multiple measurements in taxonomic problems. Annals of Eugenics, 7, Part II, 179-188.\n\nThe data were collected by Anderson, Edgar (1935). The irises of the Gaspe Peninsula, Bulletin of the American Iris Society, 59, 2-5.\n\n\n**Source**\n[https://www.kaggle.com/rtatman/iris-dataset-json-version](https://www.kaggle.com/rtatman/iris-dataset-json-version)\n\n---\n\nCreated with [GitRows](https://gitrows.com)"
+openapi: 3.0.0
+servers:
+    -
+        url: 'https://api.gitrows.com'
+paths:
+    /@github/gitrows/data/iris.json:
+        get:
+            operationId: listRecords
+            responses:
+                '200':
+                    description: 'Returns a list of records'
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/Record'
+                default:
+                    description: 'Error Payload'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+components:
+    schemas:
+        Error:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                documentation:
+                    type: object
+                    properties:
+                        description:
+                            type: string
+                        url:
+                            type: string
+        Record:
+            type: object
+            properties:
+                sepalLength:
+                    type: number
+                    format: float
+                sepalWidth:
+                    type: integer
+                    format: int32
+                petalLength:
+                    type: number
+                    format: float
+                petalWidth:
+                    type: number
+                    format: float
+                species:
+                    type: string
