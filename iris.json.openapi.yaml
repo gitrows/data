@@ -1,0 +1,164 @@
+info:
+    version: 1.0.0
+    title: 'Example: Iris Flower Data Set'
+    contact:
+        name: gitrows
+        url: 'https://github.com/gitrows'
+        email: support@gitrows.com
+    description: "**History**\n\n(Wikipedia)[https://en.wikipedia.org/wiki/Iris_flower_data_set]\n**Acknowledgements**\nThe citation for this dataset is:\n\nFisher, R. A. (1936) The use of multiple measurements in taxonomic problems. Annals of Eugenics, 7, Part II, 179-188.\n\nThe data were collected by Anderson, Edgar (1935). The irises of the Gaspe Peninsula, Bulletin of the American Iris Society, 59, 2-5.\n\n**Source**\n(Kaggle)[https://www.kaggle.com/rtatman/iris-dataset-json-version]\n\nKeywords: taxonomy, flowers, irises\n\n---\n\nCreated with [GitRows](https://gitrows.com)"
+    x-gitrows-repository: 'https://github.com/gitrows/data/blob/master/iris.json'
+    x-gitrows-api-path: '@github/gitrows/data/iris.json'
+    x-gitrows-keywords:
+        - taxonomy
+        - flowers
+        - irises
+components:
+    schemas:
+        Error:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+                documentation:
+                    type: object
+                    properties:
+                        description:
+                            type: string
+                        url:
+                            type: string
+        Record:
+            type: object
+            properties:
+                sepalLength:
+                    type: number
+                    format: float
+                    description: 'Outer leaves (septals) length'
+                sepalWidth:
+                    type: integer
+                    format: int32
+                    description: 'Outer leaves (septals) width'
+                petalLength:
+                    type: number
+                    format: float
+                    description: 'Inner leaves (petals) length'
+                petalWidth:
+                    type: number
+                    format: float
+                    description: 'Inner leaves (petals) width'
+                species:
+                    type: string
+                    description: 'Iris setosa, Iris virginica or Iris versicolor'
+openapi: 3.0.0
+servers:
+    -
+        url: 'https://api.gitrows.com'
+paths:
+    /@github/gitrows/data/iris.json:
+        get:
+            description: 'Return a list of records'
+            operationId: listRecords
+            parameters:
+                -
+                    in: query
+                    name: sepalLength
+                    schema:
+                        oneOf:
+                            -
+                                type: number
+                            -
+                                type: string
+                    description: "Select records that match value for `sepalLength`.\n\nYou can optionally use the following comparison operators as prefixes to your values, e.g. `sepalLength=gt:10`:\n\n`not:` equals not; `lt:` less than; `lte:` less than or equal; `gt:` greater than; `gte:` greater than or equal"
+                    allowReserved: true
+                -
+                    in: query
+                    name: sepalWidth
+                    schema:
+                        oneOf:
+                            -
+                                type: integer
+                            -
+                                type: string
+                    description: "Select records that match value for `sepalWidth`.\n\nYou can optionally use the following comparison operators as prefixes to your values, e.g. `sepalWidth=gt:10`:\n\n`not:` equals not; `lt:` less than; `lte:` less than or equal; `gt:` greater than; `gte:` greater than or equal"
+                    allowReserved: true
+                -
+                    in: query
+                    name: petalLength
+                    schema:
+                        oneOf:
+                            -
+                                type: number
+                            -
+                                type: string
+                    description: "Select records that match value for `petalLength`.\n\nYou can optionally use the following comparison operators as prefixes to your values, e.g. `petalLength=gt:10`:\n\n`not:` equals not; `lt:` less than; `lte:` less than or equal; `gt:` greater than; `gte:` greater than or equal"
+                    allowReserved: true
+                -
+                    in: query
+                    name: petalWidth
+                    schema:
+                        oneOf:
+                            -
+                                type: number
+                            -
+                                type: string
+                    description: "Select records that match value for `petalWidth`.\n\nYou can optionally use the following comparison operators as prefixes to your values, e.g. `petalWidth=gt:10`:\n\n`not:` equals not; `lt:` less than; `lte:` less than or equal; `gt:` greater than; `gte:` greater than or equal"
+                    allowReserved: true
+                -
+                    in: query
+                    name: species
+                    schema:
+                        type: string
+                    description: "Select records that match value for `species`.\n\nYou can optionally use the following comparison operators as prefixes to your values, e.g. `species=*:foo`:\n\n`starts:` text starts with, alias: `^:`; `contains:` contains text, alias: `*:`; `ends:` text ends with, alias: `$:`"
+                    allowReserved: true
+                -
+                    in: query
+                    name: $count
+                    schema:
+                        type: string
+                    description: 'Counts the records in the data set, use `*` or any `columnName` as parameter'
+                    allowReserved: true
+                -
+                    in: query
+                    name: $avg
+                    schema:
+                        type: string
+                    description: 'Calculates the average of all numeric values in `columnName`'
+                    allowReserved: true
+                -
+                    in: query
+                    name: $sum
+                    schema:
+                        type: string
+                    description: 'Calculates the sum of all numeric values in `columnName`'
+                    allowReserved: true
+                -
+                    in: query
+                    name: $min
+                    schema:
+                        type: string
+                    description: 'Returns the smallest of all numeric values in `columnName`'
+                    allowReserved: true
+                -
+                    in: query
+                    name: $max
+                    schema:
+                        type: string
+                    description: 'Returns the largest of all numeric values in `columnName`'
+                    allowReserved: true
+            responses:
+                '200':
+                    description: 'A list of records with any optionally provided filters applied.'
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/Record'
+                default:
+                    description: 'Error Payload'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
