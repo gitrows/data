@@ -5,7 +5,7 @@ info:
         name: gitrows
         url: 'https://github.com/gitrows'
         email: support@gitrows.com
-    description: "## History\n\n[Wikipedia](https://en.wikipedia.org/wiki/Iris_flower_data_set)\n\n\n## Acknowledgements\n\nThe citation for this dataset is:\n\n> Fisher, R. A. (1936) The use of multiple measurements in taxonomic problems. Annals of Eugenics, 7, Part II, 179-188.\n> \n> The data were collected by Anderson, Edgar (1935). The irises of the Gaspe Peninsula, Bulletin of the American Iris Society, 59, 2-5.\n\n## Source\n\n[Kaggle](https://www.kaggle.com/rtatman/iris-dataset-json-version)\n\n---\n\nKeywords: taxonomy, irises, flowers, gitrows\n\n---\n\nCreated with [GitRows](https://gitrows.com)"
+    description: "## History\n\n[Wikipedia](https://en.wikipedia.org/wiki/Iris_flower_data_set)\n\n\n## Acknowledgements\n\nThe citation for this dataset is:\n\n> Fisher, R. A. (1936) The use of multiple measurements in taxonomic problems. Annals of Eugenics, 7, Part II, 179-188.\n> \n> The data was collected by Anderson, Edgar (1935). The irises of the Gaspe Peninsula, Bulletin of the American Iris Society, 59, 2-5.\n\n## Source\n\n[Kaggle](https://www.kaggle.com/rtatman/iris-dataset-json-version)\n\n---\n\nKeywords: taxonomy, irises, flowers, gitrows\n\n---\n\nCreated with [GitRows](https://gitrows.com)"
     x-gitrows-repository: 'https://github.com/gitrows/data/blob/master/iris.json'
     x-gitrows-api-path: '@github/gitrows/data/iris.json'
     x-gitrows-keywords:
